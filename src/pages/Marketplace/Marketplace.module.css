@@ -1,0 +1,67 @@
+.container {
+  max-width: 1200px;
+  margin: 30px auto;
+  padding: 0 30px;
+}
+
+.topRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+.balance {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.balance div {
+  margin-bottom: 0;
+}
+
+.balanceNumber {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: #ffffff;
+  border: 1px solid #191A23;
+  border-radius: 8px;
+  padding: 6px 14px;
+  font-weight: bold;
+  font-size: 18px;
+  line-height: 1.2;
+  color: #191A23;
+}
+
+.knowledgeCard {
+  max-width: 240px;
+  margin-bottom: 24px;
+  font-size: 18px;
+  font-weight: bold;
+  text-align: center;
+  color: #191A23;
+}
+
+.sectionTitle {
+  font-size: 20px;
+  margin-bottom: 16px;
+  font-weight: bold;
+  color: #191A23;
+}
+
+.cardsGrid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+}
+
+.itemCard {
+  min-height: 160px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 32px;
+  color: #191A23;
+}

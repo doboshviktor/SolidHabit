@@ -1,0 +1,40 @@
+.container {
+  max-width: 1200px;
+  margin: 30px auto;
+  padding: 0 30px;
+}
+
+.formGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 28px;
+  margin-top: 10px;
+  margin-bottom: 36px;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  color: #191A23;
+}
+
+.input {
+  padding: 14px 18px;
+  border: 1.5px solid #191A23;
+  border-radius: 10px;
+  font-size: 16px;
+  color: #191A23;
+}
+
+.addItemCard {
+  margin-top: 10px;
+  padding: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  font-size: 22px;
+  font-weight: bold;
+  color: #191A23;
+}

@@ -1,0 +1,73 @@
+.container {
+  max-width: 1200px;
+  margin: 30px auto;
+  padding: 0 30px;
+}
+
+.habitsGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 18px;
+  margin-top: 10px;
+  margin-bottom: 36px;
+}
+
+.habitCard {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  padding: 18px 24px;
+  user-select: none;
+}
+
+.checkbox {
+  width: 26px;
+  height: 26px;
+  border: 1.5px solid #191A23;
+  border-radius: 6px;
+  background-color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  color: #191A23;
+}
+
+.checkboxChecked {
+  background-color: #D31A42;
+  color: #ffffff;
+}
+
+.habitTitle {
+  font-size: 18px;
+  font-weight: 600;
+  color: #191A23;
+}
+
+.subtitle {
+  font-size: 22px;
+  margin-bottom: 18px;
+  color: #191A23;
+}
+
+.chartContainer {
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+.chartImg {
+  width: 100%;
+  max-height: 380px;
+  object-fit: contain;
+  border-radius: 16px;
+  border: 1px solid #191A23;
+}
+
+.footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+  font-size: 18px;
+  color: #191A23;
+}

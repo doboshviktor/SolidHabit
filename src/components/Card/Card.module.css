@@ -1,0 +1,15 @@
+.card {
+  background-color: #F3F3F3;
+  border: 1px solid #191A23;
+  border-radius: 20px;
+  padding: 16px 20px;
+  color: #191A23;
+}
+
+.clickable {
+  cursor: pointer;
+}
+
+.clickable:hover {
+  background-color: #e9e9e9;
+}

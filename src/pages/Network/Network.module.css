@@ -1,0 +1,23 @@
+.container {
+  max-width: 1200px;
+  margin: 30px auto;
+  padding: 0 30px;
+}
+
+.friendsList {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-top: 10px;
+  margin-bottom: 36px;
+}
+
+.friendCard {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  padding: 18px 28px;
+  font-size: 20px;
+  font-weight: bold;
+  color: #191A23;
+}

@@ -1,3 +1,4 @@
+import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom'
 import Header from './components/Header/Header'
 import Landing from './pages/Landing/Landing'
 import Home from './pages/Home/Home'
@@ -7,26 +8,24 @@ import Profile from './pages/Profile/Profile'
 import './App.css'
 
 function App() {
-  const path = window.location.pathname
-
-  let CurrentPage = Landing
-  if (path === '/home' || path === '/dashboard') {
-    CurrentPage = Home
-  } else if (path === '/marketplace') {
-    CurrentPage = Marketplace
-  } else if (path === '/network') {
-    CurrentPage = Network
-  } else if (path === '/profile') {
-    CurrentPage = Profile
-  }
-
   return (
-    <div className="appContainer">
-      <Header />
-      <main className="mainContent">
-        <CurrentPage />
-      </main>
-    </div>
+    <BrowserRouter>
+      <div className="appContainer">
+        <Header />
+        <main className="mainContent">
+          <Routes>
+            <Route path="/" element={<Landing />} />
+            <Route path="/landing" element={<Landing />} />
+            <Route path="/dashboard" element={<Home />} />
+            <Route path="/home" element={<Home />} />
+            <Route path="/marketplace" element={<Marketplace />} />
+            <Route path="/network" element={<Network />} />
+            <Route path="/profile" element={<Profile />} />
+            <Route path="*" element={<Navigate to="/" replace />} />
+          </Routes>
+        </main>
+      </div>
+    </BrowserRouter>
   )
 }
 

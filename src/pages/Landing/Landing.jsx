@@ -1,11 +1,14 @@
+import { useNavigate } from 'react-router-dom'
 import Card from '../../components/Card/Card'
 import Button from '../../components/Button/Button'
 import styles from './Landing.module.css'
 
 function Landing() {
+  const navigate = useNavigate()
+
   const handleSubmit = (e) => {
     e.preventDefault()
-    window.location.pathname = '/dashboard'
+    navigate('/dashboard')
   }
 
   return (

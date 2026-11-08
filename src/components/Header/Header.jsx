@@ -1,26 +1,27 @@
+import { Link } from 'react-router-dom'
 import Button from '../Button/Button'
 import styles from './Header.module.css'
 
 function Header() {
   return (
     <header className={styles.header}>
-      <a href="/" className={styles.logo}>
+      <Link to="/" className={styles.logo}>
         <span className={styles.logoSolid}>Solid</span>Habit
-      </a>
+      </Link>
 
       <nav className={styles.nav}>
-        <a href="/dashboard" className={styles.navLink}>
+        <Link to="/dashboard" className={styles.navLink}>
           Dashboard
-        </a>
-        <a href="/marketplace" className={styles.navLink}>
+        </Link>
+        <Link to="/marketplace" className={styles.navLink}>
           Marketplace
-        </a>
-        <a href="/network" className={styles.navLink}>
+        </Link>
+        <Link to="/network" className={styles.navLink}>
           Network
-        </a>
-        <a href="/profile">
-          <Button>Pes_Patron</Button>
-        </a>
+        </Link>
+        <Link to="/profile">
+          <Button className={styles.profileBtn}>Pes_Patron</Button>
+        </Link>
       </nav>
     </header>
   )

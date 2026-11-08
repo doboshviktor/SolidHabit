@@ -1,25 +1,19 @@
-import { useState } from 'react'
-import { mockHabits } from '../../utils'
-import Badge from '../../components/Badge/Badge'
-import Card from '../../components/Card/Card'
-import Button from '../../components/Button/Button'
-import chartImg from '../../assets/chart.png'
-import styles from './Home.module.css'
+import { useHome } from '../../hooks';
+import Badge from '../../components/Badge/Badge';
+import Card from '../../components/Card/Card';
+import Button from '../../components/Button/Button';
+import chartImg from '../../assets/chart.png';
+import styles from './Home.module.css';
 
 function Home() {
-  const [habits, setHabits] = useState(mockHabits)
-
-  const toggleHabit = (id) => {
-    setHabits((prev) =>
-      prev.map((habit) =>
-        habit.id === id ? { ...habit, completed: !habit.completed } : habit,
-      ),
-    )
-  }
+  const { habits, loading, error, toggleHabit } = useHome();
 
   return (
     <div className={styles.container}>
       <Badge>My Habits</Badge>
+
+      {loading && <p>Loading habits...</p>}
+      {error && <p>Error loading habits: {error}</p>}
 
       <div className={styles.habitsGrid}>
         {habits.map((habit) => (
@@ -44,6 +38,7 @@ function Home() {
         <img
           src={chartImg}
           className={styles.chartImg}
+          alt="Discipline chart"
         />
       </div>
 
@@ -57,4 +52,4 @@ function Home() {
   );
 }
 
-export default Home
+export default Home;

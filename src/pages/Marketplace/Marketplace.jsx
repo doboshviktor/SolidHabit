@@ -1,35 +1,54 @@
-import { mockUser } from '../../utils'
-import Badge from '../../components/Badge/Badge'
-import Card from '../../components/Card/Card'
-import SearchBar from '../../components/SearchBar/SearchBar'
-import styles from './Marketplace.module.css'
+import { useMarketplace } from '../../hooks';
+import Badge from '../../components/Badge/Badge';
+import Card from '../../components/Card/Card';
+import styles from './Marketplace.module.css';
 
 function Marketplace() {
+  const { balance, items, unlockedSecrets, buyItem } = useMarketplace();
+
   return (
     <div className={styles.container}>
       <div className={styles.topRow}>
         <Badge>Your Knowledge</Badge>
         <div className={styles.balance}>
           <Badge>Your Balance:</Badge>
-          <span className={styles.balanceNumber}>{mockUser.balance}</span>
+          <span className={styles.balanceNumber}>{balance}</span>
         </div>
       </div>
 
-      <Card className={styles.knowledgeCard}>Піцерія Колізей</Card>
+      <div className={styles.secretsGrid}>
+        {unlockedSecrets.map((secret, index) => (
+          <Card key={index} className={styles.knowledgeCard}>
+            {secret}
+          </Card>
+        ))}
+      </div>
 
       <div className={styles.sectionTitle}>Spend your currency</div>
 
-      <SearchBar />
-
       <div className={styles.cardsGrid}>
-        {[1, 2, 3, 4, 5, 6, 7, 8].map((id) => (
-          <Card key={id} className={styles.itemCard}>
-            <span>🔒 200</span>
+        {items.map((item) => (
+          <Card
+            key={item.id}
+            className={`${styles.itemCard} ${item.unlocked ? styles.itemCardUnlocked : ''}`}
+            onClick={() => !item.unlocked && buyItem(item.id)}
+          >
+            {item.unlocked ? (
+              <>
+                <span>🔓 Unlocked</span>
+                <span style={{ fontSize: '14px', fontWeight: 'normal' }}>{item.title}</span>
+              </>
+            ) : (
+              <>
+                <span className={styles.priceTag}>🔒 {item.price}</span>
+                <span style={{ fontSize: '14px', fontWeight: 'normal' }}>{item.title}</span>
+              </>
+            )}
           </Card>
         ))}
       </div>
     </div>
-  )
+  );
 }
 
-export default Marketplace
+export default Marketplace;

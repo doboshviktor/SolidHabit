@@ -4,20 +4,40 @@
   padding: 0 30px;
 }
 
-.friendsList {
+.friendsList,
+.usersList {
   display: flex;
   flex-direction: column;
   gap: 16px;
-  margin-top: 10px;
-  margin-bottom: 36px;
+  margin: 10px 0 36px;
 }
 
-.friendCard {
+.userCard {
   display: flex;
   align-items: center;
-  gap: 20px;
+  justify-content: space-between;
   padding: 18px 28px;
   font-size: 20px;
   font-weight: bold;
   color: #191A23;
+}
+
+.deleteIconBtn {
+  background: transparent;
+  color: #D31A42;
+  font-size: 22px;
+  font-weight: bold;
+  cursor: pointer;
+  line-height: 1;
+}
+
+.addBtn {
+  padding: 6px 14px;
+  background: #D31A42;
+  color: #ffffff;
+  border: 1.5px solid #191A23;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
 }

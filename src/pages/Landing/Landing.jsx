@@ -1,15 +1,21 @@
-import { useNavigate } from 'react-router-dom'
-import Card from '../../components/Card/Card'
-import Button from '../../components/Button/Button'
-import styles from './Landing.module.css'
+import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { useAuth } from '../../hooks';
+import Card from '../../components/Card/Card';
+import Button from '../../components/Button/Button';
+import styles from './Landing.module.css';
 
 function Landing() {
-  const navigate = useNavigate()
+  const navigate = useNavigate();
+  const { login } = useAuth();
+  const [name, setName] = useState('');
+  const [password, setPassword] = useState('');
 
   const handleSubmit = (e) => {
-    e.preventDefault()
-    navigate('/dashboard')
-  }
+    e.preventDefault();
+    login(name, password);
+    navigate('/dashboard');
+  };
 
   return (
     <div className={styles.container}>
@@ -30,13 +36,23 @@ function Landing() {
         <Card className={styles.loginCard}>
           <form className={styles.form} onSubmit={handleSubmit}>
             <label className={styles.label}>Name</label>
-            <input className={styles.input} type="text" placeholder="Name" />
+            <input
+              className={styles.input}
+              type="text"
+              placeholder="Name"
+              value={name}
+              onChange={(e) => setName(e.target.value)}
+              required
+            />
 
             <label className={styles.label}>Password</label>
             <input
               className={styles.input}
               type="password"
               placeholder="Password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              required
             />
 
             <Button type="submit" className={styles.submitBtn}>
@@ -46,7 +62,7 @@ function Landing() {
         </Card>
       </div>
     </div>
-  )
+  );
 }
 
-export default Landing
+export default Landing;

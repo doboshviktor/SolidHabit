@@ -10,7 +10,6 @@
 .logo {
   font-size: 33px;
   font-weight: bold;
-  color: #191A23;
 }
 
 .logoSolid {
@@ -26,10 +25,49 @@
 
 .navLink {
   font-weight: bold;
-  color: #191A23;
+}
+
+.profileWrapper {
+  position: relative;
 }
 
 .profileBtn {
   padding: 12px 28px;
   border-radius: 12px;
+}
+
+.dropdownMenu {
+  position: absolute;
+  top: calc(100% + 8px);
+  background: #ffffff;
+  border: 1.5px solid #191A23;
+  border-radius: 12px;
+  min-width: 160px;
+  display: flex;
+  flex-direction: column;
+}
+
+.dropdownItem {
+  padding: 12px 18px;
+  font-size: 16px;
+  font-weight: 600;
+  color: #191A23;
+  text-align: left;
+  background: transparent;
+  border-bottom: 1px solid #eee;
+  display: block;
+}
+
+.dropdownItem:hover {
+  background: #f5f5f5;
+}
+
+.logoutBtn {
+  color: #D31A42;
+  border-bottom: none;
+  font-weight: bold;
+}
+
+.logoutBtn:hover {
+  background: #ffebee;
 }

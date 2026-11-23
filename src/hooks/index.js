@@ -4,3 +4,4 @@ export { useProfile } from './useProfile';
 export { useNetwork } from './useNetwork';
 export { useMarketplace } from './useMarketplace';
 export { useHome } from './useHome';
+export { useProofs } from './useProofs';

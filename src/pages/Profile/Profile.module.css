@@ -4,6 +4,42 @@
   padding: 0 30px;
 }
 
+.profileHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 16px;
+  margin-bottom: 16px;
+}
+
+.proofDate {
+  font-size: 13px;
+  color: #666;
+}
+
+.requestProofBtn {
+  background: pink;
+  border: 1px solid #191A23;
+  padding: 10px 18px;
+  border-radius: 8px;
+  font-weight: bold;
+}
+
+.requestProofBtn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.proofVerifiedBanner {
+  background: pink;
+  margin-bottom: 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+}
+
 .formGrid {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -15,7 +51,6 @@
   display: flex;
   flex-direction: column;
   gap: 8px;
-  color: #191A23;
 }
 
 .input {
@@ -23,7 +58,26 @@
   border: 1.5px solid #191A23;
   border-radius: 10px;
   font-size: 16px;
-  color: #191A23;
+}
+
+.chartCard {
+  margin-top: 14px;
+  margin-bottom: 36px;
+  padding: 24px 16px 16px;
+  width: 100%;
+}
+
+.chartHeader {
+  display: flex;
+  justify-content: space-between;
+  padding: 0 12px 14px;
+  font-size: 14px;
+  color: #666;
+}
+
+.chartWrapper {
+  width: 100%;
+  height: 260px;
 }
 
 .itemsList {
@@ -38,7 +92,6 @@
   align-items: center;
   justify-content: space-between;
   gap: 16px;
-  padding: 16px 20px;
 }
 
 .itemInfo {
@@ -68,12 +121,15 @@
   font-weight: bold;
 }
 
+.itemRow.purchasableItem {
+  cursor: pointer;
+}
+
 .btn {
   padding: 8px 16px;
   border: 1.5px solid #191A23;
   border-radius: 8px;
   background: transparent;
-  cursor: pointer;
   font-weight: bold;
 }
 
@@ -95,7 +151,6 @@
   justify-content: center;
   font-size: 22px;
   font-weight: bold;
-  cursor: pointer;
 }
 
 .itemForm {
@@ -104,6 +159,18 @@
   gap: 12px;
   padding: 20px;
   margin-top: 10px;
+}
+
+.itemFormContents {
+  display: contents;
+}
+
+.titleInput {
+  flex: 2;
+}
+
+.priceInput {
+  flex: 1;
 }
 
 .formRow,

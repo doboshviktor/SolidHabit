@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { Navigate, useNavigate } from 'react-router-dom';
 import { useAuth } from '../../hooks';
 import Card from '../../components/Card/Card';
 import Button from '../../components/Button/Button';
@@ -7,15 +7,21 @@ import styles from './Landing.module.css';
 
 function Landing() {
   const navigate = useNavigate();
-  const { login } = useAuth();
+  const { login, error, isAuthenticated } = useAuth();
   const [name, setName] = useState('');
   const [password, setPassword] = useState('');
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    login(name, password);
-    navigate('/dashboard');
+    const success = await login(name, password);
+    if (success) {
+      navigate('/dashboard');
+    }
   };
+
+  if (isAuthenticated) {
+    return <Navigate to="/dashboard" replace />;
+  }
 
   return (
     <div className={styles.container}>
@@ -54,6 +60,8 @@ function Landing() {
               onChange={(e) => setPassword(e.target.value)}
               required
             />
+
+            {error && <p className={styles.errorMessage}>{error}</p>}
 
             <Button type="submit" className={styles.submitBtn}>
               Sign In

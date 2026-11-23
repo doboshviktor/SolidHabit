@@ -16,7 +16,6 @@
   font-size: 64px;
   font-weight: 800;
   line-height: 1.15;
-  color: #191A23;
   margin-bottom: 32px;
 }
 
@@ -27,7 +26,6 @@
 .description {
   font-size: 20px;
   line-height: 1.55;
-  color: #191A23;
   max-width: 520px;
 }
 
@@ -49,7 +47,6 @@
 .label {
   font-size: 18px;
   font-weight: 600;
-  color: #191A23;
 }
 
 .input {
@@ -58,7 +55,6 @@
   border-radius: 12px;
   font-size: 18px;
   margin-bottom: 12px;
-  color: #191A23;
 }
 
 .submitBtn {
@@ -68,4 +64,9 @@
   font-weight: bold;
   border-radius: 12px;
   margin-top: 8px;
+}
+
+.errorMessage {
+  color: #D31A42;
+  font-size: 14px;
 }

@@ -5,6 +5,8 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
+    "server": "node backend/index.js",
+    "server:dev": "nodemon backend/index.js",
     "build": "vite build",
     "lint": "eslint .",
     "preview": "vite preview",
@@ -13,7 +15,8 @@
   "dependencies": {
     "react": "^19.2.8",
     "react-dom": "^19.2.8",
-    "react-router-dom": "^7.18.4"
+    "react-router-dom": "^7.18.4",
+    "recharts": "^3.10.1"
   },
   "devDependencies": {
     "@eslint/js": "^10.0.1",

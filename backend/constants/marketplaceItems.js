@@ -1,0 +1,10 @@
+module.exports = [
+  { id: 1, ownerId: 1, title: 'Gym Workout Routine', price: 200, description: 'Three-day strength plan', secret: 'Monday: squats, bench press, rows. Wednesday: deadlifts, overhead press, pull-ups. Friday: repeat Monday with slightly more weight. Do 3 sets of 8 reps per exercise.' },
+  { id: 2, ownerId: 2, title: 'Spotify Playlist', price: 200, description: 'Music for focused work', secret: 'Start with instrumental tracks, keep the volume low, and use a 45-minute playlist as a focus timer. Add your favorite tracks to make this list your own.' },
+  { id: 3, ownerId: 3, title: 'Exam Study Plan', price: 200, description: 'A simple revision schedule', secret: 'List every topic, study the hardest one first, and test yourself without notes. Review missed questions the next day and again before the exam.' },
+  { id: 4, ownerId: 4, title: 'Youtube Channel Plan', price: 200, description: 'Ideas for consistent publishing', secret: 'Choose one topic, outline four short videos, record them in one session, and publish one each week. Track which questions viewers ask for your next batch.' },
+  { id: 5, ownerId: 5, title: 'Morning Routine', price: 200, description: 'A practical start to the day', secret: 'Drink water, take a short walk, write down your top priority, then spend 25 minutes on it before checking messages.' },
+  { id: 6, ownerId: 6, title: 'Best Pizza in Town', price: 200, description: 'A personal food recommendation', secret: 'Try Pizzeria Colosseum. Order a classic Margherita first, then compare the crust and sauce with your usual favorite.' },
+  { id: 7, ownerId: 1, title: 'Habit Guide', price: 200, description: 'How to make a habit stick', secret: 'Make the habit small enough to do on a busy day. Attach it to an existing routine, prepare what you need in advance, and mark each completed day.' },
+  { id: 8, ownerId: 2, title: 'Book Summary', price: 200, description: 'Notes on building routines', secret: 'Consistent small actions compound over time. Make the desired action obvious and easy, then review your progress each week.' },
+];

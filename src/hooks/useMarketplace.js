@@ -1,61 +1,43 @@
 import { useState } from 'react';
-import { mockUser } from '../utils';
-
-const initialItems = [
-  { id: 1, title: 'Gym Workout Routine', price: 200, unlocked: false, secret: 'pizza gym' },
-  { id: 2, title: 'Spotify  Playlist', price: 200, unlocked: false, secret: 'pizza playlist' },
-  { id: 3, title: 'Exam answers', price: 200, unlocked: false, secret: 'pizza exam' },
-  { id: 4, title: 'Youtube channel', price: 200, unlocked: false, secret: 'pizza channel' },
-  { id: 5, title: 'Morning Routine ', price: 200, unlocked: false, secret: 'pizza routine' },
-  { id: 6, title: 'Best Pizza in Town', price: 200, unlocked: false, secret: 'pizza town' },
-  { id: 7, title: 'Guide', price: 200, unlocked: false, secret: ' pizza guide' },
-  { id: 8, title: 'Book Summary', price: 200, unlocked: false, secret: 'pizza book' },
-];
+import { useFetch } from './useFetch';
+import { useAuth } from './useAuth';
 
 export function useMarketplace() {
-  const [balance, setBalance] = useState(() => {
-    const saved = localStorage.getItem('user_balance');
-    return saved !== null ? Number(saved) : mockUser.balance;
+  const { data: serverItems, loading, error } = useFetch('http://localhost:5000/api/marketplace');
+  const { user, balance, updateBalance } = useAuth();
+
+  const [boughtIds, setBoughtIds] = useState(() => {
+    const saved = localStorage.getItem(`marketplace_bought_ids_${user?.id}`);
+    return saved ? JSON.parse(saved) : [];
   });
 
-  const [items, setItems] = useState(() => {
-    const saved = localStorage.getItem('marketplace_bought_items');
-    return saved ? JSON.parse(saved) : initialItems;
-  });
-
-  const [unlockedSecrets, setUnlockedSecrets] = useState(() => {
-    const saved = localStorage.getItem('unlocked_secrets');
-    return saved ? JSON.parse(saved) : ['Піцерія Колізей'];
-  });
+  const items = (serverItems || []).map((item) => ({
+    ...item,
+    unlocked: boughtIds.includes(item.id),
+  }));
 
   const buyItem = (id) => {
     const itemToBuy = items.find((item) => item.id === id);
     if (!itemToBuy || itemToBuy.unlocked) return;
 
     if (balance < itemToBuy.price) {
-      alert('Not enough balance!');
+      alert('Not enough Nyavchuku balance!');
       return;
     }
 
     const newBalance = balance - itemToBuy.price;
-    setBalance(newBalance);
-    localStorage.setItem('user_balance', String(newBalance));
+    updateBalance(newBalance);
 
-    const updatedItems = items.map((item) =>
-      item.id === id ? { ...item, unlocked: true } : item
-    );
-    setItems(updatedItems);
-    localStorage.setItem('marketplace_bought_items', JSON.stringify(updatedItems));
-
-    const updatedSecrets = [...unlockedSecrets, itemToBuy.secret || itemToBuy.title];
-    setUnlockedSecrets(updatedSecrets);
-    localStorage.setItem('unlocked_secrets', JSON.stringify(updatedSecrets));
+    const updatedBoughtIds = [...boughtIds, id];
+    setBoughtIds(updatedBoughtIds);
+    localStorage.setItem(`marketplace_bought_ids_${user.id}`, JSON.stringify(updatedBoughtIds));
   };
 
   return {
     balance,
     items,
-    unlockedSecrets,
+    loading,
+    error,
     buyItem,
   };
 }

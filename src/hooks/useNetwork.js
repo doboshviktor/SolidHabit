@@ -3,7 +3,7 @@ import { useFetch } from './useFetch';
 import { mockFriends } from '../utils';
 
 export function useNetwork() {
-  const { data: allUsers, loading, error } = useFetch('/data/users.json');
+  const { data: allUsers, loading, error } = useFetch('http://localhost:5000/api/users');
 
   const [friends, setFriends] = useState(() => {
     const saved = localStorage.getItem('friends');

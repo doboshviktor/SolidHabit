@@ -17,6 +17,10 @@
   gap: 8px;
 }
 
+.balanceLabel {
+  margin-bottom: 0;
+}
+
 .balanceNumber {
   display: inline-flex;
   align-items: center;
@@ -27,29 +31,28 @@
   padding: 6px 14px;
   font-weight: bold;
   font-size: 18px;
-  color: #191A23;
+  min-height: 46px;
 }
 
-.secretsGrid {
-  display: flex;
-  flex-wrap: wrap;
+.secretContent {
+  padding-top: 10px;
+  border-top: 1px solid #191A23;
+  overflow-wrap: anywhere;
+}
+
+.purchasedGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
   gap: 12px;
   margin-bottom: 24px;
 }
 
-.knowledgeCard {
-  padding: 12px 20px;
-  font-size: 16px;
-  font-weight: bold;
-  text-align: center;
-  color: #191A23;
-}
-
-.sectionTitle {
-  font-size: 20px;
-  margin: 20px 0 16px;
-  font-weight: bold;
-  color: #191A23;
+.purchasedCard {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  background: pink;
+  overflow-wrap: anywhere;
 }
 
 .cardsGrid {
@@ -68,16 +71,20 @@
   gap: 8px;
   font-size: 18px;
   font-weight: bold;
-  color: #191A23;
-  cursor: pointer;
   text-align: center;
   padding: 16px;
 }
 
 .itemCardUnlocked {
   background: pink;
+  cursor: default;
 }
 
 .priceTag {
   font-size: 24px;
+}
+
+.itemTitle {
+  font-size: 14px;
+  font-weight: normal;
 }

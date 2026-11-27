@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { useNetwork } from '../../hooks';
 import Badge from '../../components/Badge/Badge';
 import Card from '../../components/Card/Card';
@@ -6,6 +7,7 @@ import SearchBar from '../../components/SearchBar/SearchBar';
 import styles from './Network.module.css';
 
 function Network() {
+  const navigate = useNavigate();
   const { friends, allUsers, loading, error, addFriend, removeFriend } = useNetwork();
   const [search, setSearch] = useState('');
   const filteredUsers = allUsers.filter((user) =>
@@ -19,7 +21,12 @@ function Network() {
       <div className={styles.friendsList}>
         {friends.map((friend) => (
           <Card key={friend.id} className={styles.userCard}>
-            <span>👤 {friend.name}</span>
+            <span
+              className={styles.userLink}
+              onClick={() => navigate(`/profile/${friend.id}`)}
+            >
+              👤 {friend.name}
+            </span>
             <button
               type="button"
               className={styles.deleteIconBtn}
@@ -49,7 +56,12 @@ function Network() {
 
           return (
             <Card key={user.id} className={styles.userCard}>
-              <span>👤 {user.name}</span>
+              <span
+                className={styles.userLink}
+                onClick={() => navigate(`/profile/${user.id}`)}
+              >
+                👤 {user.name}
+              </span>
               {!isAlreadyFriend ? (
                 <button
                   type="button"

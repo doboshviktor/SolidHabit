@@ -8,8 +8,7 @@
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 28px;
-  margin-top: 10px;
-  margin-bottom: 36px;
+  margin: 10px 0 36px;
 }
 
 .field {
@@ -27,14 +26,88 @@
   color: #191A23;
 }
 
+.itemsList {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin: 15px 0 20px;
+}
+
+.itemRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 16px 20px;
+}
+
+.itemInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  flex: 1;
+  min-width: 0;
+  word-break: break-word;
+}
+
+.itemTitle {
+  font-weight: 600;
+  font-size: 18px;
+}
+
+.itemDescription {
+  font-size: 14px;
+  color: #666;
+}
+
+.itemRight {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  flex-shrink: 0;
+  font-weight: bold;
+}
+
+.btn {
+  padding: 8px 16px;
+  border: 1.5px solid #191A23;
+  border-radius: 8px;
+  background: transparent;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.deleteBtn {
+  border-color: #D31A42;
+  color: #D31A42;
+}
+
+.saveBtn {
+  background: #D31A42;
+  color: #ffffff;
+}
+
 .addItemCard {
   margin-top: 10px;
   padding: 24px;
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 16px;
   font-size: 22px;
   font-weight: bold;
-  color: #191A23;
+  cursor: pointer;
+}
+
+.itemForm {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 20px;
+  margin-top: 10px;
+}
+
+.formRow,
+.formActions {
+  display: flex;
+  gap: 12px;
 }

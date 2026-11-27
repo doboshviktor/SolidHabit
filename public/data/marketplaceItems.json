@@ -1,0 +1,5 @@
+[
+  { "id": 1, "title": "Spotify  Playlist", "price": 150, "description": "Pizza" },
+  { "id": 2, "title": "Gym Workout", "price": 200, "description": "Pizza" },
+  { "id": 3, "title": "Pizza", "price": 300, "description": "Pizza" }
+]
